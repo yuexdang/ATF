@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注意力测试系统</title>
+    <!-- core dependcies css -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+    <!-- file css -->
+    <link rel="stylesheet" href="static/css/Ticket.css">
+</head>
+
+<body>
+
+    <style>
+        {% for coord_id, coord_info in coordinates.items() %}
+        .{{ coord_id }} {
+            left: {{ coord_info.left }};
+            top: {{ coord_info.top }};
+        }
+        {% endfor %}
+        
+        .content-block img {
+            width: {{size[0]}}mm;
+            height: {{size[1]}}mm;
+        }
+    </style>
+
+
+    <div class="container-box">
+        <div style="display: none;" id="sight">
+            <img src="static/image/sight.svg">
+        </div>
+        <div id="choice">
+            <h4>请<code>单击图片</code>选择您喜欢的登机牌</h4>
+
+            <div class="content-block" id="insert">
+            </div>
+        </div>
+    </div>
+    <div style="display: none;opacity: 0;" id="title">{{num}}:{{img[0]}}:{{img[1]}}:{{last}}:{{waitTime}}</div>
+
+    <script src="static/js/CTicket.js"></script>
+</body>

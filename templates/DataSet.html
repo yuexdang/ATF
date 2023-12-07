@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注意力测试系统</title>
+
+
+    <!-- core dependcies css -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+    <link rel="stylesheet" href="static/css/dataTables.bootstrap4.min.css">
+
+    <!-- core css -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/themify-icons.css" rel="stylesheet">
+    <link href="static/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="static/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app header-success-gradient">
+        <div class="layout">
+            <!-- Header START -->
+            <div class="header navbar">
+                <div class="header-container">
+                    <div class="nav-logo">
+                        <a href="">
+
+                            <div class="logo logo-white" style="background-image: url('static/image/logo-white.png')"></div>
+                        </a>
+                    </div>
+                    <ul class="nav-left">
+                        <li>
+                            <a class="sidenav-fold-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                            <a class="sidenav-expand-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav expand-lg">
+                <div class="side-nav-inner">
+                    <ul class="side-nav-menu scrollable">
+                        <li class="side-nav-header">
+                            <span>功能菜单</span>
+                        </li>
+
+                        <!-- 主页 -->
+                        <li class="nav-item dropdown ">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-drama"></i>
+                                </span>
+                                <span class="title">测试区域</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./">主页</a>
+                                </li>
+                                <li>
+                                    <a href="./FindTest">信息提取搜索测试</a>
+                                </li>
+                                <li>
+                                    <a href="./ChoiceTest">偏好度选择测试</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- 看板页 -->
+                        <li class="nav-item dropdown open">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-gauge"></i>
+                                </span>
+                                <span class="title">数据面板</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li id="1">
+                                    <a href="./DataSet&id=1">偏好度选择测试数据表</a>
+                                </li>
+                                <li id="2">
+                                    <a href="./DataSet&id=2">信息提取搜索测试数据表</a>
+                                </li>
+                                <li>
+                                    <a href="./Accuracy">测试准确度统计数据</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="side-nav-header">
+                            <span>软件设置</span>
+                        </li>
+
+                        <!-- 设置页 -->
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-tilt-shift"></i>
+                                </span>
+                                <span class="title">软件设置</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./Settings">基础设置</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- 中心内容块 -->
+            <div class="page-container">
+                <div class="main-content">
+                    <div class="container-fluid">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-overflow">
+                                    <table id="dt-opt" class="table table-hover table-xl">
+                                        <thead>
+                                            <tr>
+                                                {% for row in data[0] %}
+                                                <th>{{row}}</th>
+                                                {% endfor %}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for d in data[1] %}
+                                            <tr>
+                                                {% for _d in d %}
+                                                <td>{{_d}}</td>
+                                                {% endfor %}
+                                            </tr>
+                                            {% endfor %}
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 中心内容块 -->
+                <!-- 底部 -->
+                <footer class="content-footer">
+                    <div class="footer">
+                        <div class="copyright text-center text-gray">
+                            Air Ticket Focus 实验平台，仅学习使用
+                        </div>
+                    </div>
+                </footer>
+                <!-- 底部 -->
+            </div>
+        </div>
+    </div>
+    <div id="dataID">{{id}}</div>
+
+</body>
+
+</html>
+<script src="static/js/vendor.js"></script>
+<script src="static/js/app.min.js"></script>
+
+<!-- 页面Js -->
+<script type="text/javascript" src="static/js/sheetneed.js"></script>
+
+<!-- 表单内容Js -->
+<script src="static/js/jquery.dataTables.js"></script>
+<script src="static/js/dataTables.bootstrap4.min.js"></script>
+<script src="static/js/data-table.js"></script>
+
+<script>
+    // 获取id为dataID的div的内容
+    var divContent = document.getElementById('dataID').innerHTML;
+    document.getElementById(divContent.trim()).classList.add('active');
+</script>
+</body>
+
+</html>
+
+</html>

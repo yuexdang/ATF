@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注意力测试系统</title>
+
+
+    <!-- core dependcies css -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+    <!-- core css -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/themify-icons.css" rel="stylesheet">
+    <link href="static/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="static/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app header-success-gradient">
+        <div class="layout">
+            <!-- Header START -->
+            <div class="header navbar">
+                <div class="header-container">
+                    <div class="nav-logo">
+                        <a href="">
+                            <div class="logo logo-white" style="background-image: url('static/image/logo-white.png')"></div>
+                        </a>
+                    </div>
+                    <ul class="nav-left">
+                        <li>
+                            <a class="sidenav-fold-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                            <a class="sidenav-expand-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav expand-lg">
+                <div class="side-nav-inner">
+                    <ul class="side-nav-menu scrollable">
+                        <li class="side-nav-header">
+                            <span>功能菜单</span>
+                        </li>
+
+                        <!-- 主页 -->
+                        <li class="nav-item dropdown open">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-drama"></i>
+                                </span>
+                                <span class="title">测试区域</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="active">
+                                    <a href="./">主页</a>
+                                </li>
+                                <li>
+                                    <a href="./FindTest">信息提取搜索测试</a>
+                                </li>
+                                <li>
+                                    <a href="./ChoiceTest">偏好度选择测试</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- 看板页 -->
+                        {% if showData == "1" %}
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-gauge"></i>
+                                </span>
+                                <span class="title">数据面板</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./DataSet&id=1">偏好度选择测试数据表</a>
+                                </li>
+                                <li>
+                                    <a href="./DataSet&id=2">信息提取搜索测试数据表</a>
+                                </li>
+                                <li>
+                                    <a href="./Accuracy">测试准确度统计数据</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        {% endif %}
+                        <li class="side-nav-header">
+                            <span>软件设置</span>
+                        </li>
+
+                        <!-- 设置页 -->
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-tilt-shift"></i>
+                                </span>
+                                <span class="title">软件设置</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./Settings">基础设置</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Page Container START -->
+            <div class="page-container">
+
+                <!-- Content Wrapper START -->
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div class="m-b-30">
+                            <ul class="list-media d-inline-block m-b-20">
+                                <li class="list-item">
+                                    <div class="media-img">
+                                        <div class="icon-avatar bg-gradient-success">
+                                            <span>D</span>
+                                        </div>
+                                    </div>
+                                    <div class="info" style="width: 205px;">
+                                        <b class="title font-size-16">Demo版本测试员</b>
+                                        <span class="sub-title">Made By <a href="https://github.com/yuexdang">Yuexdang</a></span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="float-lg-right">
+                                <button class="btn btn-gradient-danger m-b-25" disabled>
+                                    <i class="ti-plus m-r-5"></i>
+                                    <span>Demo版本不支持自定义功能</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <span>信息提取搜索测试</span>
+                                            <a href="" class="text-gray pull-right dropdown" data-toggle="dropdown" aria-expanded="true">
+                                                <i class="mdi mdi-dots-vertical font-size-20"></i>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="./FindTest">进行测试</a>
+                                                <a class="dropdown-item" onclick="refreshExperiment('2')">重置实验</a>
+                                                <!-- <a class="dropdown-item" data-toggle="modal" data-target="#basic-modal-Finder">清除数据</a> -->
+                                            </div>
+
+                                        </h4>
+                                        <div class="m-t-30" id='board1'>
+                                            <div class="card">
+                                                <div class="p-15">
+                                                    <ul class="list-label m-b-10">
+                                                        <li class="bg-info"></li>
+                                                    </ul>
+                                                    <p class="font-size-15"><b>统计数据</b></p>
+                                                    <div class="m-t-20">
+                                                        <ul class="list-inline d-inline-block m-t-10">
+                                                            <li>
+                                                                <i class="mdi mdi-comment-outline"></i>
+                                                                <span>下轮测试剩余{{timerF}}次环节</span>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card">
+                                                <div class="p-15">
+                                                    <ul class="list-label m-b-10">
+                                                        <li class="bg-info"></li>
+                                                    </ul>
+                                                    <p class="font-size-15"><b>文件信息</b></p>
+                                                    <div class="m-t-20">
+                                                        <ul class="list-inline d-inline-block m-t-10">
+                                                            <li>
+                                                                <i class="mdi mdi-paperclip"></i>
+                                                                <span><a>当前已记录{{dataF}}条数据</a></span>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <span>偏好度选择测试</span>
+                                            <a href="" class="text-gray pull-right dropdown" data-toggle="dropdown" aria-expanded="true">
+                                                <i class="mdi mdi-dots-vertical font-size-20"></i>
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="./ChoiceTest">进行测试</a>
+                                                <a class="dropdown-item" onclick="refreshExperiment('1')">重置实验</a>
+                                                <!-- <a class="dropdown-item" data-toggle="modal" data-target="#basic-modal-Choice">清除数据</a> -->
+                                            </div>
+
+                                        </h4>
+                                        <div class="m-t-30" id='board1'>
+                                            <div class="card">
+                                                <div class="p-15">
+                                                    <ul class="list-label m-b-10">
+                                                        <li class="bg-info"></li>
+                                                    </ul>
+                                                    <p class="font-size-15"><b>统计数据</b></p>
+                                                    <div class="m-t-20">
+                                                        <ul class="list-inline d-inline-block m-t-10">
+                                                            <li>
+                                                                <i class="mdi mdi-comment-outline"></i>
+                                                                <span>下轮测试剩余{{timerC}}次环节</span>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card">
+                                                <div class="p-15">
+                                                    <ul class="list-label m-b-10">
+                                                        <li class="bg-info"></li>
+                                                    </ul>
+                                                    <p class="font-size-15"><b>文件信息</b></p>
+                                                    <div class="m-t-20">
+                                                        <ul class="list-inline d-inline-block m-t-10">
+                                                            <li>
+                                                                <i class="mdi mdi-paperclip"></i>
+                                                                <span><a>当前已记录{{dataC}}条数据</a></span>
+                                                            </li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="basic-modal-Choice" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>再次确认</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>确认删除实验<b>偏好度选择测试</b>的所有记录数据？此操作<code>无法撤回</code>！</p>
+                            </div>
+                            <div class="modal-footer no-border">
+                                <div class="text-right">
+                                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button class="btn btn-success" data-dismiss="modal" onclick="delData(1)">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="basic-modal-Finder" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>再次确认</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>确认删除实验<b>信息提取搜索测试</b>的所有记录数据？此操作<code>无法撤回</code>！</p>
+                            </div>
+                            <div class="modal-footer no-border">
+                                <div class="text-right">
+                                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button class="btn btn-success" data-dismiss="modal" onclick="delData(2)">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content Wrapper END -->
+
+                <!-- Footer START -->
+                <footer class="content-footer">
+                    <div class="footer">
+                        <div class="copyright text-center text-gray">
+                            Air Ticket Focus 实验平台，仅学习使用
+                        </div>
+                    </div>
+                </footer>
+                <!-- Footer END -->
+
+            </div>
+            <!-- Page Container END -->
+
+        </div>
+    </div>
+
+    <script src="static/js/vendor.js"></script>
+    <script src="static/js/app.min.js"></script>
+
+    <script>
+        function refreshExperiment(id) {
+            // 发送 GET 请求到 ./refresh
+            fetch('./refresh&id=' + id)
+                .then(response => {
+                    // 检查响应状态码
+                    if (response.ok) {
+                        // 弹窗成功
+                        alert('成功重置实验');
+                        location.reload();
+                    } else {
+                        // 弹窗失败
+                        alert('重置实验失败');
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    // 弹窗网络错误
+                    alert('网络错误: ' + error.message);
+                });
+        }
+
+        function delData(id) {
+            // 发送 GET 请求到 ./Clear
+            fetch('./Clear&id=' + id)
+                .then(response => {
+                    // 检查响应状态码
+                    if (response.ok) {
+                        // 弹窗成功
+                        alert('成功清空数据');
+                        location.reload();
+                    } else {
+                        // 弹窗失败
+                        alert('清空数据失败');
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    // 弹窗网络错误
+                    alert('网络错误: ' + error.message);
+                });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+    body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        background-color: #f7fbff;
+    }
+    
+    .container-box {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 50px;
+        text-align: center;
+    }
+    
+    .float-content {
+        position: relative;
+    }
+    
+    .content-block {
+        margin-top: 40px;
+    }
+    
+    .content-block img {
+        object-fit: cover;
+        z-index: 1;
+    }
+    
+    .PicDiv {
+        position: absolute;
+        border-radius: 4px;
+        font-family: 'Microsoft YaHei', sans-serif;
+        color: #333333;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .PicDiv:hover {
+        box-shadow: 0 0 5px 1px #bbcad7;
+    }
+    
+    .DivFlight {
+        font-size: 13pt;
+    }
+    
+    .DivOther {
+        font-size: 15pt;
+    }
+    
+    .DivSmall {
+        font-size: 9pt;
+    }

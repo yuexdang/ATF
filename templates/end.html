@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注意力测试系统</title>
+    <!-- core dependcies css -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+    <!-- file css -->
+    <link rel="stylesheet" href="static/css/Ticket.css">
+    <link href="static/css/app.css" rel="stylesheet">
+</head>
+
+
+<body>
+
+
+    <div class="container-box">
+        <h1>测试结束</h1>
+        <p>感谢您的配合</p>
+
+        <div class="content-block" id="insert">
+            {% if id == 1 and showNext< 2 %} 
+                <button class="btn btn-gradient-success" onclick="window.location.href='./FTicket'">继续测试</button>
+            {% endif %} 
+            
+            {% if id == 2 and showNext< 2 %} 
+                <button class="btn btn-gradient-success" onclick="window.location.href='./CTicket'">继续测试</button>
+            {% endif %} 
+            
+            {% if canExit != "0" or showNext >= 2 %} 
+                <button class="btn btn-gradient-success" onclick="window.location.href='./'">返回系统</button> 
+            {% endif %}
+        </div>
+        <div style="display: none;" id="id">{{id}}</div>
+    </div>
+
+    <script>
+        document.body.onload = function() {
+            sendGetRequest();
+        };
+
+        function sendGetRequest() {
+            var xhr = new XMLHttpRequest();
+            var divElement = document.getElementById('id')
+            var divContent = divElement.textContent || divElement.innerText
+            var url = 'http://127.0.0.1:5000/refresh&id=' + divContent;
+
+            xhr.open('GET', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // 解析响应为 JSON
+                        var data = JSON.parse(xhr.responseText);
+                        console.log('Response:', data);
+                    } else {
+                        // 处理错误
+                        console.error('Error:', xhr.statusText);
+                    }
+                }
+            };
+
+            xhr.send();
+        }
+    </script>
+</body>

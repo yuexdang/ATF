@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注意力测试系统</title>
+
+
+    <!-- core dependcies css -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+    <!-- core css -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/themify-icons.css" rel="stylesheet">
+    <link href="static/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="static/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app header-success-gradient">
+        <div class="layout">
+            <!-- Header START -->
+            <div class="header navbar">
+                <div class="header-container">
+                    <div class="nav-logo">
+                        <a href="">
+                            <div class="logo logo-white" style="background-image: url('static/image/logo-white.png')"></div>
+                        </a>
+                    </div>
+                    <ul class="nav-left">
+                        <li>
+                            <a class="sidenav-fold-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                            <a class="sidenav-expand-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav expand-lg">
+                <div class="side-nav-inner">
+                    <ul class="side-nav-menu scrollable">
+                        <li class="side-nav-header">
+                            <span>功能菜单</span>
+                        </li>
+
+                        <!-- 主页 -->
+                        <li class="nav-item dropdown open">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-drama"></i>
+                                </span>
+                                <span class="title">测试区域</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./">主页</a>
+                                </li>
+                                <li>
+                                    <a href="./FindTest">信息提取搜索测试</a>
+                                </li>
+                                <li class="active">
+                                    <a href="./ChoiceTest">偏好度选择测试</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- 看板页 -->
+                        {% if showData == "1" %}
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-gauge"></i>
+                                </span>
+                                <span class="title">数据面板</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./DataSet&id=1">偏好度选择测试数据表</a>
+                                </li>
+                                <li>
+                                    <a href="./DataSet&id=2">信息提取搜索测试数据表</a>
+                                </li>
+                                <li>
+                                    <a href="./Accuracy">测试准确度统计数据</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        {% endif %}
+
+                        <li class="side-nav-header">
+                            <span>软件设置</span>
+                        </li>
+
+                        <!-- 设置页 -->
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-tilt-shift"></i>
+                                </span>
+                                <span class="title">软件设置</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./Settings">基础设置</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Page Container START -->
+            <div class="page-container">
+
+                <!-- Content Wrapper START -->
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div class="page-header">
+                            <h2 class="header-title">偏好度选择测试</h2>
+                        </div>
+                        <div class="card">
+                            <div class="card-header border bottom">
+                                <h4 class="card-title">偏好度选择测试 测试说明</h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="m-b-25">在下面的测试中，将会为您展示两张不同的机票，您需要选择您最喜欢的其中一张</p>
+                                <div class="accordion" id="accordion-default" role="tablist">
+                                    <div class="card">
+                                        <div class="card-header" role="tab">
+                                            <h5 class="card-title">
+                                                <a data-toggle="collapse" href="#collapseOneDefault" aria-expanded="true">
+                                                    <span>测试说明</span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseOneDefault" class="collapse show" data-parent="#accordion-default">
+                                            <div class="card-body">
+                                                <p>在测试环节中，我们将在空白的屏幕上为您展示<code>两张</code>不同的机票。您有一定的时间去观察并挑选您最喜欢的一张机票，当您点选机票后， <code>将默认您选择了这张机票</code>,<code>{{timer}}秒</code>后将为您切换下一组图片。测试过程请按照您的个人直觉与喜好进行选择，如出现干扰因素，请<b>忽略</b>或<b>尝试重新测试</b>。
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header" role="tab">
+                                            <h5 class="card-title">
+                                                <a class="collapsed" data-toggle="collapse" href="#collapseTwoDefault" aria-expanded="false">
+                                                    <span>注意事项</span>
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwoDefault" class="collapse" data-parent="#accordion-default">
+                                            <div class="card-body">
+                                                <p>
+                                                    1.在测试过程中，我们将会进行计时操作，其他行为将不会被记录<br> 2.在测试环节中，将<code>不存在回退选项</code>，请谨慎选择
+                                                    <br> 3.本次测试共包含<code>{{choice}}</code>轮，可在设置页进行调整
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-gradient-primary" data-toggle="modal" data-target="#basic-modal">开始测试</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="basic-modal" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4>再次确认</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>测试过程中请尽量避免注意力的转移与发散，请测试员用<code>尽可能短</code>的时间做出自己主观方面的判断。当题目超过设定时间后，将标记此数据为<code>疑似数据</code></p>
+                                    </div>
+                                    <div class="modal-footer no-border">
+                                        <div class="text-right">
+                                            <button class="btn btn-default" data-dismiss="modal">取消</button>
+                                            <button class="btn btn-success" data-dismiss="modal" onclick="window.location.href='./CTicket'">急死了开始吧</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Content Wrapper END -->
+
+                        <!-- Footer START -->
+                        <footer class="content-footer">
+                            <div class="footer">
+                                <div class="copyright text-center text-gray">
+                                    Air Ticket Focus 实验平台，仅学习使用
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- Footer END -->
+
+                    </div>
+                    <!-- Page Container END -->
+
+                </div>
+            </div>
+
+            <script src="static/js/vendor.js"></script>
+            <script src="static/js/app.min.js"></script>
+
+
+</body>
+
+</html>

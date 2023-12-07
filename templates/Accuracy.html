@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注意力测试系统</title>
+
+
+    <!-- core dependcies css -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+    <!-- core css -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/themify-icons.css" rel="stylesheet">
+    <link href="static/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="static/css/app.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app header-success-gradient">
+        <div class="layout">
+            <!-- Header START -->
+            <div class="header navbar">
+                <div class="header-container">
+                    <div class="nav-logo">
+                        <a href="">
+                            <div class="logo logo-white" style="background-image: url('static/image/logo-white.png')"></div>
+                        </a>
+                    </div>
+                    <ul class="nav-left">
+                        <li>
+                            <a class="sidenav-fold-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                            <a class="sidenav-expand-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav expand-lg">
+                <div class="side-nav-inner">
+                    <ul class="side-nav-menu scrollable">
+                        <li class="side-nav-header">
+                            <span>功能菜单</span>
+                        </li>
+
+                        <!-- 主页 -->
+                        <li class="nav-item dropdown ">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-drama"></i>
+                                </span>
+                                <span class="title">测试区域</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./">主页</a>
+                                </li>
+                                <li>
+                                    <a href="./FindTest">信息提取搜索测试</a>
+                                </li>
+                                <li>
+                                    <a href="./ChoiceTest">偏好度选择测试</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- 看板页 -->
+                        <li class="nav-item dropdown open">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-gauge"></i>
+                                </span>
+                                <span class="title">数据面板</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./DataSet&id=1">偏好度选择测试数据表</a>
+                                </li>
+                                <li>
+                                    <a href="./DataSet&id=2">信息提取搜索测试数据表</a>
+                                </li>
+                                <li class="active">
+                                    <a href="./Accuracy">测试准确度统计数据</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="side-nav-header">
+                            <span>软件设置</span>
+                        </li>
+
+                        <!-- 设置页 -->
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-tilt-shift"></i>
+                                </span>
+                                <span class="title">软件设置</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./Settings">基础设置</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Page Container START -->
+            <div class="page-container">
+                <!-- Content Wrapper START -->
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div class="container">
+                            <div class="card">
+                                <div class="p-v-5 p-h-10 border bottom print-invisible">
+                                    <ul class="list-unstyle list-inline text-right">
+                                        <li class="list-inline-item">
+                                            <a href="" class="btn text-gray text-hover display-block p-10 m-b-0" onclick="window.print();">
+                                                <i class="ti-printer text-info p-r-5"></i>
+                                                <b>打印报告</b>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="card-body">
+                                    <div class="p-h-30">
+                                        <div class="m-t-15">
+                                            <div class="inline-block">
+                                                <h3>测试数据核验报告</h3>
+                                                <address class="p-l-10 m-t-20">
+                                                    <b class="text-dark">DataBoard,SW.</b><br>
+                                                    <span>20231207 Made</span><br>
+                                                    <abbr class="text-dark" title="Link">Github:</abbr>
+                                                    <span>https://github.com/yuexdang/</span>
+                                                </address>
+                                            </div>
+                                            <div class="pull-right">
+                                                <h2>DataBoard Analyse</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row m-t-20">
+                                            <div class="col-sm-9">
+                                                <h3 class="p-l-10 m-t-10">数据检验结果:</h3>
+                                                <address class="p-l-10 m-t-10">
+                                                    <b class="text-dark">中值法计算逻辑.</b><br>
+                                                    <span>{{DataNum}}条数据参与运算</span><br>
+                                                </address>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="m-t-80">
+                                                    <div class="text-dark text-uppercase d-inline-block"><b>计算编号 :</b></div>
+                                                    <div class="pull-right">#0001</div>
+                                                </div>
+                                                <div class="text-dark text-uppercase d-inline-block"><b>计算事件 :</b></div>
+                                                <div class="pull-right">{{DataTime}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="row m-t-20">
+                                            <div class="col-sm-12">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>测试用例</th>
+                                                            <th>测试数据</th>
+                                                            <th>正确数据</th>
+                                                            <th>耗时</th>
+                                                            <th class="text-right">准确率</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for k in Hash %}
+                                                        <tr>
+                                                            <td>{{ loop.index }}</td>
+                                                            <td>{{ k[0] }}</td>
+                                                            <td>{{ k[1][0] }}</td>
+                                                            <td>{{ k[1][2] }}</td>
+                                                            <td>{{ k[1][1] }}</td>
+                                                            <td class="text-right">{{k[1][2]/k[1][0]*100|round(4)}}%</td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                                <div class="row m-t-30">
+                                                    <div class="col-sm-12">
+                                                        <div class="pull-right text-right">
+                                                            <p>总计 统计数据: {{DataNum}}</p>
+                                                            <p>数据来源 : 信息提取搜索测试数据 </p>
+                                                            <hr>
+                                                            <h3><b>总耗时 :</b> {{sumTime|round(3)}}</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-t-30">
+                                                    <div class="col-sm-12">
+                                                        <div class="border top bottom p-v-20">
+                                                            <p class="text-opacity"><small>实验过程存在一定偶合误差，对于此类实验方式需要足够的数据量以支持统计准确与均值稳定。生成实验报告仅作为参考与辅助说明作用。对于大数量的实验个体，平台能够保证实验数据统计准确性与计算准确性，其他方面受实验者影响。</small></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content Wrapper END -->
+
+
+            </div>
+
+            <script src="static/js/vendor.js"></script>
+            <script src="static/js/app.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+{
+    "answerList": {
+        "\u4ee5\u4e0b\u767b\u673a\u724c\u7684\u822a\u73ed\u53f7\u662f\u591a\u5c11\uff1f": "1",
+        "\u767b\u673a\u53e3\u5728\u54ea\uff1f": "2",
+        "\u4ec0\u4e48\u65f6\u5019\u767b\u673a\uff1f": "3",
+        "\u4ee5\u4e0b\u767b\u673a\u724c\u7684\u5ea7\u4f4d\u53f7\u662f\u591a\u5c11\uff1f": "4"
+    },
+    "folder_path": "static\\pictures",
+    "waitTime": "1",
+    "data_path": "data",
+    "file_name": "data.xlsx",
+    "length": "203",
+    "width": "80",
+    "showData": "1",
+    "coordinates": {
+        "Da": {
+            "left": "57.5em",
+            "top": "5.2em"
+        },
+        "Db": {
+            "left": "28.1em",
+            "top": "10em"
+        },
+        "Dc": {
+            "left": "46.6em",
+            "top": "5.2em"
+        },
+        "Dd": {
+            "left": "34.6em",
+            "top": "10em"
+        },
+        "D1": {
+            "left": "12.6em",
+            "top": "4em"
+        },
+        "D2": {
+            "left": "3.6em",
+            "top": "8.6em"
+        },
+        "D3": {
+            "left": "11.6em",
+            "top": "8.6em"
+        },
+        "D4": {
+            "left": "18.3em",
+            "top": "8.6em"
+        },
+        "D5": {
+            "left": "13.7em",
+            "top": "6.9em"
+        },
+        "D6": {
+            "left": "3.7em",
+            "top": "3.3em"
+        },
+        "D7": {
+            "left": "3.7em",
+            "top": "5.7em"
+        },
+        "D8": {
+            "left": "3.7em",
+            "top": "8.1em"
+        },
+        "D9": {
+            "left": "4.2em",
+            "top": "6.9em"
+        },
+        "D10": {
+            "left": "12em",
+            "top": "3.4em"
+        },
+        "D11": {
+            "left": "12em",
+            "top": "5.7em"
+        },
+        "D12": {
+            "left": "12em",
+            "top": "8.1em"
+        },
+        "D13": {
+            "left": "4.2em",
+            "top": "6.9em"
+        },
+        "D14": {
+            "left": "19.2em",
+            "top": "3.3em"
+        },
+        "D15": {
+            "left": "19.2em",
+            "top": "5.7em"
+        },
+        "D16": {
+            "left": "19.2em",
+            "top": "8.1em"
+        }
+    }
+}

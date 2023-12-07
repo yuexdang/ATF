@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注意力测试系统</title>
+
+
+    <!-- core dependcies css -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+    <!-- core css -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/css/themify-icons.css" rel="stylesheet">
+    <link href="static/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="static/css/app.css" rel="stylesheet">
+</head>
+
+<style>
+    .notification {
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px;
+        border-radius: 8px;
+        background-color: #1dcdde;
+        color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        z-index: 9999;
+    }
+    
+    .notification.show {
+        opacity: 1;
+    }
+    
+    #lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    /* Style for the lightbox image */
+    
+    #lightbox img {
+        max-width: 80%;
+        max-height: 80%;
+        border: 3px solid white;
+        border-radius: 10px;
+        z-index: 10000;
+    }
+</style>
+
+<body>
+    <div class="app header-success-gradient">
+        <div class="layout">
+            <!-- Header START -->
+            <div class="header navbar">
+                <div class="header-container">
+                    <div class="nav-logo">
+                        <a href="">
+                            <div class="logo logo-white" style="background-image: url('static/image/logo-white.png')"></div>
+                        </a>
+                    </div>
+                    <ul class="nav-left">
+                        <li>
+                            <a class="sidenav-fold-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                            <a class="sidenav-expand-toggler" href="javascript:void(0);">
+                                <i class="mdi mdi-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header END -->
+
+            <!-- Side Nav START -->
+            <div class="side-nav expand-lg">
+                <div class="side-nav-inner">
+                    <ul class="side-nav-menu scrollable">
+                        <li class="side-nav-header">
+                            <span>功能菜单</span>
+                        </li>
+
+                        <!-- 主页 -->
+                        <li class="nav-item dropdown ">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-drama"></i>
+                                </span>
+                                <span class="title">测试区域</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./">主页</a>
+                                </li>
+                                <li>
+                                    <a href="./FindTest">信息提取搜索测试</a>
+                                </li>
+                                <li>
+                                    <a href="./ChoiceTest">偏好度选择测试</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- 看板页 -->
+                        {% if showData == "1" %}
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-gauge"></i>
+                                </span>
+                                <span class="title">数据面板</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="./DataSet&id=1">偏好度选择测试数据表</a>
+                                </li>
+                                <li>
+                                    <a href="./DataSet&id=2">信息提取搜索测试数据表</a>
+                                </li>
+                                <li>
+                                    <a href="./Accuracy">测试准确度统计数据</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        {% endif %}
+
+                        <li class="side-nav-header">
+                            <span>软件设置</span>
+                        </li>
+
+                        <!-- 设置页 -->
+                        <li class="nav-item dropdown open">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="mdi mdi-image-filter-tilt-shift"></i>
+                                </span>
+                                <span class="title">软件设置</span>
+                                <span class="arrow">
+                                    <i class="mdi mdi-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="active">
+                                    <a href="./Settings">基础设置</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- Side Nav END -->
+
+            <!-- Page Container START -->
+            <div class="page-container">
+
+                <!-- Content Wrapper START -->
+                <div class="main-content">
+                    <div class="container-fluid" id="main-content">
+                        <div class="page-header">
+                            <h2 class="header-title">软件设置</h2>
+                            <div class="header-sub-title">修改后将<code>自动保存</code>，部分设置将在<code>下次重启</code>时启用</div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>全局设置</h5>
+                                        <div class="p-h-10">
+                                            <form class="m-t-15">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label control-label">数据保存路径</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" value={{dataPath}} placeholder="输入数据保存路径" id="data_path">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label control-label">数据文件名</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" value={{dataName}} placeholder="数据表文件" id="file_name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label control-label">素材文件夹</label>
+                                                    <div class="col-sm-6">
+                                                        <input type="text" class="form-control" value={{staticPath}} placeholder="素材文件夹" id="folder_path" readonly="readonly">
+                                                    </div>
+                                                    <div class="col-sm-3 control-label">
+                                                        <button class="btn btn-default" id="btn_folder_path">暂不支持修改</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5> 测试设置</h5>
+                                        <div class="p-h-10">
+                                            <form class="m-t-15">
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label control-label text-sm-right">测试间隔时长(s)</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" value={{time}} placeholder="间隔时长" id="waitTime">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label control-label text-sm-right">图片尺寸(mm)</label>
+                                                    <div class="col-sm-4">
+                                                        <span>长</span>
+                                                        <input type="text" class="form-control" value={{length}} placeholder="长" id="length">
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <span>宽</span>
+                                                        <input type="text" class="form-control" value={{width}} placeholder="宽" id="width">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label control-label text-sm-right">模式切换</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" value={{showData}} placeholder="0：折磨模式；1：后台模式；其他：测试模式" id="showData">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header border bottom">
+                                <h4 class="card-title">图元关联设置</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-overflow">
+                                    <table class="table table-xl border">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">图片信息(点击图片放大)</th>
+                                                <th scope="col">所含图元含义</th>
+                                                <th scope="col">图元代号</th>
+                                                <th scope="col">图元绑定问题</th>
+                                                <th scope="col">图元坐标(em)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% set checkList = ["航班号", "登机口", "登机时间", "座位号"] %} {% for i in range(picNum|length) %} {% for j in range(checkList|length) %}
+                                            <tr>
+                                                <td>
+                                                    {% if j == 0 %}
+                                                    <div class="list-media">
+                                                        <div class="list-item" onclick="openLightbox(this)">
+                                                            <div class="media-img">
+                                                                <img class="rounded lightbox-trigger" src="static/pictures/{{picNum[i]}}" alt="">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span class="title">{{picNum[i]}}</span>
+                                                                <span class="sub-title">static/pictures/{{picNum[i]}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% endif %}
+                                                </td>
+
+                                                <td>{{checkList[j]}}</td>
+                                                <td>{{i*4 + j+1}}</td>
+                                                <td><input disabled type="text" class="form-control" value={{answerList[j]}}></td>
+                                                <td style="max-width:10em">
+                                                    <div class="row">
+                                                        <div class="col-5 mr-2">
+                                                            <div class="row">
+                                                                <span>横坐标(em)</span>
+                                                                <input type="text" class="form-control" id=">D{{i*4+j+1}}:L" value={{locateList[0][i*4+j+1][0]}} placeholder="横坐标"></div>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <div class="row">
+                                                                <span>纵坐标(em)</span>
+                                                                <input type="text" class="form-control" id=">D{{i*4+j+1}}:W" value={{locateList[0][i*4+j+1][1]}} placeholder="纵坐标"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% endfor %} {% endfor %} {% set checkList2 = ["航班号", "座位号", "航班号", "座位号"] %} {% set number = ["a", "b", "c", "d"] %} {% set qua = ["以下登机牌的航班号是多少？", "以下登机牌的座位号是多少？", "以下登机牌的航班号是多少？", "以下登机牌的座位号是多少？"] %} {% for k in range(locateList[1]|length) %}
+                                            <tr>
+                                                <td>
+                                                    {% if k == 0 %}
+                                                    <div class="list-media">
+                                                        <div class="list-item" onclick="openLightbox(this)">
+                                                            <div class="media-img">
+                                                                <img class="rounded lightbox-trigger" src="static/image/jp.png" alt="">
+                                                            </div>
+                                                            <div class="info">
+                                                                <span class="title">登机检票联</span>
+                                                                <span class="sub-title">static/image/jp.png</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{checkList2[k]}}</td>
+                                                <td>{{number[k]}}</td>
+                                                <td><input disabled type="text" class="form-control" value={{qua[k]}}></td>
+                                                <td style="max-width:10em">
+                                                    <div class="row">
+                                                        <div class="col-5 mr-2">
+                                                            <div class="row">
+                                                                <span>横坐标(em)</span>
+                                                                <input type="text" class="form-control" id=">D{{number[k]}}:L" value={{locateList[1][number[k]][0]}} placeholder="横坐标"></div>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <div class="row">
+                                                                <span>纵坐标(em)</span>
+                                                                <input type="text" class="form-control" id=">D{{number[k]}}:W" value={{locateList[1][number[k]][1]}} placeholder="纵坐标"></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content Wrapper END -->
+
+                        <!-- Footer START -->
+                        <footer class="content-footer">
+                            <div class="footer">
+                                <div class="copyright text-center text-gray">
+                                    Air Ticket Focus 实验平台，仅学习使用
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- Footer END -->
+
+
+                    </div>
+                    <!-- Page Container END -->
+
+                </div>
+            </div>
+            <!-- Lightbox container -->
+            <div id="lightbox">
+                <!-- Image container within the lightbox -->
+                <img id="lightbox-image" src="" alt="Lightbox Image">
+            </div>
+
+</body>
+<script src="static/js/vendor.js"></script>
+<script src="static/js/app.min.js"></script>
+<script src="static/js/setting.js"></script>
+
+</html> src="static/js/setting.js"></script>
+
+</html>

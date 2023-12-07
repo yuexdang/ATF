@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>注意力测试系统</title>
+    <!-- core dependcies css -->
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+
+    <!-- file css -->
+    <link rel="stylesheet" href="static/css/Ticket.css">
+    <link href="static/css/app.css" rel="stylesheet">
+</head>
+
+    <style>
+        {% for coord_id, coord_info in coordinates.items() %}
+        .{{ coord_id }} {
+            left: {{ coord_info.left }};
+            top: {{ coord_info.top }};
+        }
+        {% endfor %}
+        
+        .content-block img {
+            width: {{size[0]}}mm;
+            height: {{size[1]}}mm;
+        }
+    </style>
+
+<body>
+
+
+    <div class="container-box">
+        <div id="QA">
+            <h3>{{Qt[1][0]}}</h3>
+            <hr>
+            <button class="btn btn-gradient-success" id="part1">我已阅读完毕</button>
+        </div>
+        <div style="display: none;" id="sight">
+            <img src="static/image/sight.svg">
+        </div>
+        <div style="display: none;" id="choice">
+            <div class="content-block" id="insert">
+
+            </div>
+        </div>
+    </div>
+    <!-- display: none;opacity: 0; -->
+    <div style="display: none;opacity: 0;" id="title">{{Qt}};{{Qt[0]}};{{Qt[1][0]}};{{Qt[1][1]}};{{last}};{{waitTime}}</div>
+
+    <script src="static/js/FTicket.js"></script>
+</body>
